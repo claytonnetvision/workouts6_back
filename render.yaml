@@ -3,11 +3,13 @@ services:
     name: workouts6-back
     env: node
     plan: free
-    buildCommand: npm install
-    startCommand: npm start
+    buildCommand: npm install && npm run build
+    startCommand: node dist/server/index.js
     envVars:
       - key: DATABASE_URL
         value: postgresql://neondb_owner:npg_MAFrdzHZ68vs@ep-soft-frost-aculcnam-pooler.sa-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+      - key: FRONTEND_URL
+        value: https://www.cfv6.com.br
       - key: NODE_ENV
         value: production
       - key: PORT
